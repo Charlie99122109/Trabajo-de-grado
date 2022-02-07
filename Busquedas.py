@@ -69,6 +69,7 @@ def principal():
                             cont += 1
             lista_aux.append((lista_csvs[i], cont))
 
+        print(lista_aux)
         return lista_aux
 
     def imprimir_resultados(lista_ordenada):
