@@ -20,11 +20,8 @@ def obtener_palabras():
 @app.route('/prueba')
 def principal():
 
-    # Cambiar la ruta para cada caso, en esta ruta se guardan los archivos .txt con las transcripciones de cada página
-    path = "Transcripciones/"
-
     # Ubicación del archivo csv que contiene un resumen de cada página web
-    resumen = path + 'resumenes.csv'
+    resumen = 'resumenes.csv'
 
     # Definir los diferentes idiomas que aparecerán en las páginas:
     languages = ["spanish", "english"]
@@ -45,27 +42,16 @@ def principal():
 
     # Función encargada de retornar una lista con las ubicaciones/rutas de todos los archivos .csv
     def obtener_archivos(extension):
-
         # Lista que guarda todos los elementos dentro de la ruta Transcripciones/ (incluyendo carpetas)
-        contenido = os.listdir(path)
-
+        contenido = os.listdir('.')
         # Lista que va a guardar todos los archivos .csv que se encuentren DENTRO DE UNA CARPETA, en la ruta path
         csvs_files = []
-
         # Recorrer cada fichero dentro de la ruta Transcripciones/
         for fichero in contenido:
-            # fichero_actual: Este es el fichero actual, puede ser otro directorio o un archivo
-            fichero_actual = os.path.join(path, fichero)
-            # Solo operar cuando fichero_actual sea un directorio, una subcarpeta dentro de Transcripciones/
-            if os.path.isdir(fichero_actual):
-                # contenido_subcarpeta: Variable que guarda cada archivo .txt dentro de el directorio de fichero_actual
-                contenido_subcarpeta = os.listdir(fichero_actual)
-                for archivo_transcripcion in contenido_subcarpeta:
-                    # Guardar solo los archivos .txt, excluir los archivos .csv
-                    if archivo_transcripcion.endswith(extension):
-                        # Añadir cada archivo .txt a la lista de transcripciones
-                        csvs_files.append(os.path.join(fichero_actual, archivo_transcripcion))
-
+            # Guardar solo los archivos .txt, excluir los archivos .csv
+            if fichero.endswith(extension):
+                # Añadir cada archivo .txt a la lista de transcripciones
+                csvs_files.append(fichero)
         return csvs_files
 
     def buscar_palabra_en_lista_csv(lista_csvs, text):
@@ -75,7 +61,7 @@ def principal():
         for i in range(len(lista_csvs)):
             cont = 0
             with open(lista_csvs[i]) as p:
-                reader = csv.reader(p, delimiter=';')
+                reader = csv.reader(p, delimiter=';', encoding='utf-8')
                 for row in reader:
                     for j in range(len(text)):
                         if row[0] == text[j]:  # row[0] la primera columna del csv
