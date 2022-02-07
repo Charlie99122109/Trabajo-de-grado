@@ -75,7 +75,7 @@ def principal():
         lista_aux = []
         beca_seleccionada = {}
         for i in range(20):  # Tomar solo los primeros 20 elementos de la lista
-            with open(resumen) as a:
+            with open(resumen, encoding='utf-8') as a:
                 reader = csv.reader(a, delimiter=';')
                 for row in reader:
                     if row[0] == lista_ordenada[i][0]:
