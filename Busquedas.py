@@ -106,7 +106,7 @@ def principal():
 
     def detectar_idioma(text_to_detect):
         text_to_detect = text_to_detect.lower()
-        tokens = nltk.tokenize.word_tokenize(text_to_detect)
+        #tokens = nltk.tokenize.word_tokenize(text_to_detect)
 
         # Creamos un dict donde almacenaremos la cuenta de las stopwords para cada idioma
         lang_count = {}
@@ -120,15 +120,16 @@ def principal():
                 current_lang_stop_words = stop_words_en
 
             lang_count[lang] = 0  # Inicializa a 0 el contador para cada idioma
-
+            """
             # Recorremos las palabras del texto a analizar
             for word in tokens:
                 # Si la palabra se encuentra entre las stopwords, incrementa el contador
                 if word in current_lang_stop_words:
                     lang_count[lang] += 1
-
+            """
         # Obtener y retornar el idioma con el número mayor de coincidencias
         return max(lang_count, key=lang_count.get)
+
 
     def limpieza_busqueda(text):
         text = text.lower()
