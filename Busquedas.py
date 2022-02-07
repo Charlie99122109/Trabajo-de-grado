@@ -1,7 +1,6 @@
 import csv
 import unidecode
 import os
-import nltk
 import spacy
 from nltk import ngrams
 from nltk.corpus import stopwords
@@ -60,7 +59,8 @@ def principal():
 
         for i in range(len(lista_csvs)):
             cont = 0
-            with open(lista_csvs[i]) as p:
+            print("YYYYYYYYYYYYYYYYYYYYYYYYYYYY", lista_csvs[i])
+            with open(lista_csvs[i], enconding='utf-8') as p:
                 print("XXXXXXXXXXXXXXXXXXXXXXXXXXXX:  ", lista_csvs[i])
                 reader = csv.reader(p, delimiter=';')
                 for row in reader:
