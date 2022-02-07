@@ -59,9 +59,9 @@ def principal():
 
         for i in range(len(lista_csvs)):
             cont = 0
-            print("YYYYYYYYYYYYYYYYYYY", lista_csvs[i])
+            print("WWWWWWWWWWWWWWWWWWWWWWWWWWW", lista_csvs[i])
             with open(lista_csvs[i], encoding='utf-8') as p:
-                print("XXXXXXXXXXXXXXXXXXX:  ", lista_csvs[i])
+                print("AAAAAAAAAAAAAAAAAAAAAAAA:  ", lista_csvs[i])
                 reader = csv.reader(p, delimiter=';')
                 for row in reader:
                     for j in range(len(text)):
