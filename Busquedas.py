@@ -59,9 +59,9 @@ def principal():
 
         for i in range(len(lista_csvs)):
             cont = 0
-            print("YYYYYYYYYYYYYYYYYYYYYYYYYYYY", lista_csvs[i])
+            #print("YYYYYYYYYYYYYYYYYYYYYYYYYYYY", lista_csvs[i])
             with open(lista_csvs[i], encoding='utf-8') as p:
-                print("XXXXXXXXXXXXXXXXXXXXXXXXXXXX:  ", lista_csvs[i])
+            #    print("XXXXXXXXXXXXXXXXXXXXXXXXXXXX:  ", lista_csvs[i])
                 reader = csv.reader(p, delimiter=';')
                 for row in reader:
                     for j in range(len(text)):
@@ -77,7 +77,9 @@ def principal():
         for i in range(20):  # Tomar solo los primeros 20 elementos de la lista
             with open(resumen, encoding='utf-8') as a:
                 reader = csv.reader(a, delimiter=';')
+                print("ZZZZZZZZZZZZZZZZZZZZZZZ", i)
                 for row in reader:
+                    print("SSSSSSSSSSSSSSSSSS", row[0])
                     if row[0] == lista_ordenada[i][0]:
                         beca_seleccionada = {
                             "Documento": row[0],
