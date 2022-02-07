@@ -20,7 +20,7 @@ def obtener_palabras():
 def principal():
 
     # Ubicación del archivo csv que contiene un resumen de cada página web
-    resumen = 'resumenes.csv'
+    resumen = 'Transcripciones/resumenes.csv'
 
     # Definir los diferentes idiomas que aparecerán en las páginas:
     languages = ["spanish", "english"]
@@ -59,7 +59,7 @@ def principal():
 
         for i in range(len(lista_csvs)):
             cont = 0
-            print("YYYYYYtrhtYYYYYYYYYYYYYYYYYYYYYY", lista_csvs[i])
+            print("YYYYYYYYYYYYYYYYYYYYYYYYYYYY", lista_csvs[i])
             with open(lista_csvs[i], encoding='utf-8') as p:
                 print("XXXXXXXXXXXXXXXXXXXXXXXXXXXX:  ", lista_csvs[i])
                 reader = csv.reader(p, delimiter=';')
