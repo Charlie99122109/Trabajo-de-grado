@@ -75,7 +75,7 @@ def principal():
         for i in range(len(lista_csvs)):
             cont = 0
             with open(lista_csvs[i]) as p:
-                reader = csv.reader(p, delimiter=';', encoding='utf-8')
+                reader = csv.reader(p, delimiter=';')
                 for row in reader:
                     for j in range(len(text)):
                         if row[0] == text[j]:  # row[0] la primera columna del csv
