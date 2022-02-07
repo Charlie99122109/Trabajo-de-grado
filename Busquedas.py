@@ -178,9 +178,10 @@ def principal():
     busqueda = limpieza_busqueda(busqueda)  # Hacer limpieza a la busqueda que ingrese el usuario
     busqueda = crear_ngrams_busqueda(busqueda)  # Separar la busqueda en unigramas, bigramas y trigramas
     resultados_busqueda = buscar_palabra_en_lista_csv(csvs, busqueda)  # Obtener los documentos que más se ajusten a la busqueda
-    sorted_list = sorted(resultados_busqueda, key=lambda aux: aux[1], reverse=True)  # Ordenar la lista de mayor a menor
+    #sorted_list = sorted(resultados_busqueda, key=lambda aux: aux[1], reverse=True)  # Ordenar la lista de mayor a menor
 
-    return jsonify({"BECAS": imprimir_resultados(sorted_list)})
+    #return jsonify({"BECAS": imprimir_resultados(sorted_list)})
+    return jsonify({"BECAS": resultados_busqueda})
 
 if __name__ == '__main__':
     app.run(debug=True, port=5000)
